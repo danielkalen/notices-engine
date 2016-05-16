@@ -1,0 +1,21 @@
+{
+  "name": "notices",
+  "version": "1.0.0",
+  "description": "A simple notice and subnotice display system",
+  "main": "notices.js",
+  "author": "danielkalen",
+  "license": "MIT",
+  "scripts": {
+    "watch": "nodemon -e coffee -w ./src -x 'npm run compile'",
+    "compile": "npm run compile:notices && npm run compile:subnotices && npm run minify",
+    "compile:notices": "simplyimport -i src/notices.coffee | coffee -c -s > dist/notices.js",
+    "compile:subnotices": "simplyimport -i src/subnotices.coffee | coffee -c -s > dist/subnotices.js",
+    "minify": "closure-service dist/notices.js > dist/notices.min.js && closure-service dist/subnotices.js > dist/subnotices.min.js"
+  },
+  "devDependencies": {
+    "closure-compiler-service": "^0.5.0",
+    "coffee-script": "^1.10.0",
+    "nodemon": "^1.8.1",
+    "uglify": "^0.1.5"
+  }
+}
