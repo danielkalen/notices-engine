@@ -1,8 +1,8 @@
 {
-  "name": "notices",
+  "name": "@danielkalen/notices",
   "version": "1.0.0",
   "description": "A simple notice and subnotice display system",
-  "main": "notices.js",
+  "main": "dist/js/notices.js",
   "author": "danielkalen",
   "license": "MIT",
   "scripts": {
