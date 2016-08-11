@@ -1,4 +1,4 @@
-do ($ = jQuery)->
+do ($=jQuery)->
 	if $('.notices').length is 0
 		$('body').prepend('<div class="notices"></div>')
 	
@@ -72,7 +72,7 @@ do ($ = jQuery)->
 
 
 
-	noticeActionTemplates = 
+	@notify.noticeActionTemplates = 
 		'ok':  "<div class='notice-actions-item button_ok'>
 					<div class='notice-actions-item-text'>Ok</div>
 				</div>",

@@ -8,9 +8,9 @@
   "scripts": {
     "watch": "nodemon -e coffee -w ./src -x 'npm run compile'",
     "compile": "npm run compile:notices && npm run compile:subnotices && npm run minify",
-    "compile:notices": "simplyimport -i src/notices.coffee | coffee -c -s > dist/notices.js",
-    "compile:subnotices": "simplyimport -i src/subnotices.coffee | coffee -c -s > dist/subnotices.js",
-    "minify": "closure-service dist/notices.js > dist/notices.min.js && closure-service dist/subnotices.js > dist/subnotices.min.js"
+    "compile:notices": "simplyimport -i src/notices.coffee | coffee -c -s -b > dist/js/notices.js",
+    "compile:subnotices": "simplyimport -i src/subnotices.coffee | coffee -c -s -b > dist/js/subnotices.js",
+    "minify": "closure-service dist/js/notices.js > dist/js/notices.min.js && closure-service dist/js/subnotices.js > dist/js/subnotices.min.js"
   },
   "devDependencies": {
     "closure-compiler-service": "^0.5.0",
