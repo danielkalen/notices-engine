@@ -28,7 +28,7 @@
     if (template) {
       this.el = $(template);
     } else {
-      this.el = $("<div class='notice'> <div class='notice-title'>" + title + "</div> <div class='notice-message'>" + text + "</div> <div class='notice-actions" + extraActionsClass + "'>" + noticeActionTemplates[type] + "</div> <div class='notice-altAction'>" + altAction + "</div> </div>");
+      this.el = $("<div class='notice'> <div class='notice-title'>" + title + "</div> <div class='notice-message'>" + text + "</div> <div class='notice-actions" + extraActionsClass + "'>" + this.notify.noticeActionTemplates[type] + "</div> <div class='notice-altAction'>" + altAction + "</div> </div>");
     }
     this.el.data('Notice', this);
     this.append();
