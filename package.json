@@ -6,7 +6,7 @@
   "author": "danielkalen",
   "license": "MIT",
   "scripts": {
-    "watch": "nodemon -e coffee -w ./src -x 'npm run compile'",
+    "watch": "nodemon -e coffee -w ./src -x 'npm run compile:notices && npm run compile:subnotices'",
     "compile": "npm run compile:notices && npm run compile:subnotices && npm run minify",
     "compile:notices": "simplyimport -i src/notices.coffee | coffee -c -s -b > dist/js/notices.js",
     "compile:subnotices": "simplyimport -i src/subnotices.coffee | coffee -c -s -b > dist/js/subnotices.js",
