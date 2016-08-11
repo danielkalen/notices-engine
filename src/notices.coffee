@@ -2,7 +2,7 @@ do ($=jQuery)->
 	if $('.notices').length is 0
 		$('body').prepend('<div class="notices"></div>')
 	
-	@notify = ({template, type='ok', title='', text='', buttonText='', altAction=''})->
+	notify = ({template, type='ok', title='', text='', buttonText='', altAction=''})->
 		new Notice({template, type, title, text, buttonText, altAction})
 
 
@@ -19,7 +19,7 @@ do ($=jQuery)->
 			@el = $("<div class='notice'>
 						<div class='notice-title'>#{title}</div>
 						<div class='notice-message'>#{text}</div>
-						<div class='notice-actions#{extraActionsClass}'>#{notify.noticeActionTemplates[type]}</div>
+						<div class='notice-actions#{extraActionsClass}'>#{actionMarkup[@type]}</div>
 						<div class='notice-altAction'>#{altAction}</div>
 					</div>")
 
@@ -72,7 +72,7 @@ do ($=jQuery)->
 
 
 
-	@notify.noticeActionTemplates = 
+	actionMarkup = 
 		'ok':  "<div class='notice-actions-item button_ok'>
 					<div class='notice-actions-item-text'>Ok</div>
 				</div>",
@@ -83,3 +83,10 @@ do ($=jQuery)->
 				   <div class='notice-actions-item button_yes'>
 						<div class='notice-actions-item-text'>Yes</div>
 				   </div>"
+
+
+
+
+	window.notify = notify
+	window.notify.Notice = Notice
+	Notice.actionMarkup = actionMarkup
