@@ -1,5 +1,5 @@
 {
-  "name": "@danielkalen/notices",
+  "name": "@danielkalen/notices-engine",
   "version": "1.0.0",
   "description": "A simple notice and subnotice display system",
   "main": "dist/js/notices.js",
