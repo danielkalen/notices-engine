@@ -51,17 +51,18 @@
 		+valign
 
 		&:after
-			+icon(attr(data-icon))
+			content: attr(data-icon)
 			position: relative
-			font-size: 15px
 			display: block
+			font-size: 15px
+			line-height: 1
 			cursor: pointer
 
 
 
 
 	&:before // Notice Icon
-		+icon(attr(data-icon))
+		content: attr(data-icon)
 		position: absolute
 		+valign(50%)
 		left: 14px
