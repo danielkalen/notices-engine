@@ -16,6 +16,10 @@
     "closure-compiler-service": "^0.5.0",
     "coffee-script": "^1.10.0",
     "nodemon": "^1.8.1",
+    "simplyimport": "^1.2.5",
     "uglify": "^0.1.5"
+  },
+  "dependencies": {
+    "jquery.transit": "^0.9.12"
   }
 }

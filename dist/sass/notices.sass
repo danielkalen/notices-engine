@@ -1,3 +1,5 @@
+@import '_vars'
+
 .notices
 	position: fixed
 	z-index: 10000
@@ -29,25 +31,24 @@
 	+valign
 	left: 0
 	right: 0
-	width: 100%
-	max-width: 313px
+	width: 90%
+	max-width: 350px
 	+center
 	background-color: white
 	border-radius: 3px
 	box-shadow: 0px 5px 11px rgba(0,0,0,0.4)
-	text-align: center
 	box-sizing: border-box
-	visibility: visible
+	text-align: center
+	opacity: 0
 	+transform(scale(0.85) translateY(-50%))
 	+transform-origin(50% 35%)
-	opacity: 0
-	transition: all 0.3s
+	+transitionTransform($time:0.3s, $additional:opacity 0.3s)
 	.reveal &
 		opacity: 1
 		+transform(scale(1) translateY(-50%))
 
 	&-title
-		padding: 22px 10px 0
+		padding-top: 22px
 		font-size: 23px
 		font-weight: 600
 		line-height: 1
@@ -66,35 +67,27 @@
 		height: 45px
 		border-radius: 0 0 3px 3px
 		overflow: hidden
-		border-top: 1px solid $divider
-		+user-select(none)
+		border-top: 1px solid #c7c7c7
 		+clearfix
 		
-		&_yesno
-			&:before
-				content: ''
-				position: absolute
-				z-index: 5
-				left: 0
-				right: 0
-				width: 1px
-				height: 100%
-				+center
-				background-color: $divider
-
 		&-item
 			position: relative
+			float: left
 			height: 100%
+			border-right: 1px solid #c7c7c7
+			box-sizing: border-box
+			&:last-child
+				border-right: 0
 
-			&.button_ok
+			._count--1 &
 				width: 100%
-				background-color: #e8ebed
-			&.button_no
+			._count--2 &
 				width: 50%
-				float: left
-			&.button_yes
-				width: 50%
-				float: left
+			._count--3 &
+				width: 33.3333%
+			._count--4 &
+				width: 25%
+
 
 			&-text
 				position: absolute
@@ -104,11 +97,12 @@
 				font-size: 18px
 				font-weight: 600
 				text-transform: uppercase
-				color: $primary
+				color: $contrast
 				cursor: pointer
 
 				.button_no &
 					font-weight: 400
+
 
 	&-altAction
 		position: absolute
@@ -118,6 +112,8 @@
 		font-size: 13px
 		color: white
 		opacity: 0.7
-		span
+		span,
+		strong,
+		b
 			font-weight: 700
 			cursor: pointer

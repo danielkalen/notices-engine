@@ -1,82 +1,28 @@
-###*
-# The library I authored for use as subnotices/alerts sitewide (frontend/backend)
-###
+# @import '_parts/jquery.transit.js'
 
-do ($ = jQuery)->
-	if $('.subnotices').length is 0
-		$('body').prepend('<div class="subnotices"></div>')
-
-	@subnotify = ({type='info', text='', time=10000, title='', browserNotice=false, container})->
-		markup = "<div class='subnotice subnotice_#{type}'>
+do ($=jQuery)->	
+	###*
+	 * Public function to create a subnotice
+	 * @param 	{string}	type				info | success | error | warning
+	 * @return 	{object}	subnotice			A subnotice object
+	###
+	subnotify = ({type='info', title='', text='', time=10000, delay=250, browserNotice=false, context=subnotify.context, direction=subnotify.direction, icons=subnotify.icons})->
+		markup = "<div class='subnotice subnotice_#{type}' data-icon='#{icons[type]}'>
 					<div class='subnotice-text'>#{text}</div>
-					<div class='subnotice-close'></div>
+					<div class='subnotice-close' data-icon='#{icons.close}'></div>
 				 </div>"
 		
-		subnoticeObject = new Subnotice(markup, container)
-		subnoticeObject.destroy(time)
+		subnotice = new Subnotice(markup, context, direction, delay)
+		subnotice.destroy(time)
 
 		if browserNotice
 			new BrowserNotice {title, text}
 
-		return subnoticeObject
-
-	
-	Subnotice = (markup, container)->
-		@el = $(markup)
-		@el.data('Subnotice', @)
-		@wrapperEl = container or $('.subnotices').first()
-		@isActive = true
-
-		if not @wrapperEl.hasClass('subnotices')
-			@wrapperEl.find('.subnotices').first()
-		@append()
-		@attachEvents()
-		return @
+		return subnotice
 
 
-	Subnotice::append = ()->
-		@el.prependTo @wrapperEl
-
-		setTimeout ()=>
-			@reveal()
-		, 200
-
-	
-	Subnotice::reveal = ()-> @el.addClass('show')
-	
-	
-	Subnotice::attachEvents = ()-> @el.children('.subnotice-close').on 'click', ()=> @destroy(0)
-	
-
-	Subnotice::destroy = (time)->
-		if time isnt false
-			el = @el
-			setTimeout ()=>
-				@el.removeClass('show')
-				@el.remove()
-				@isActive = false				
-			, time
-
-
-
-
-	BrowserNotice = ({@title, @text})->
-		return @ unless Notification?
-		if Notification.permission is 'granted'
-			@reveal()
-		else
-			Notification.requestPermission().then (state)=> @reveal() unless state isnt 'granted'
-
-	BrowserNotice::reveal = ()->
-		@notice = new Notification(@title, {'body':@text})
-
-
-
-
-
-	$(window).on 'click', '.subnotice-close', ()->
-		subnoticeObject = $(@).parent().data('Subnotice')
-		subnoticeObject.destroy(0)
-
-
-	return
+	# @import '_parts/subnotices-Subnotice.coffee'
+	# @import '_parts/subnotices-BrowserNotice.coffee'
+	# @import '_parts/subnotices-defaults.coffee'
+	window.subnotify = subnotify
+	subnotify.Subnotice = Subnotice
