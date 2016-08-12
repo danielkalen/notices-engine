@@ -69,7 +69,7 @@
     this.noticesList.push(this);
     return this.el$.addClass("index--" + (this.noticesList.indexOf(this) + 1)).addClass('show').css({
       'y': startTransform,
-      "margin-bottom": "" + negation + placementOffset
+      "margin-bottom": "" + negation + placementOffset + "px"
     }).transition({
       'y': finishTransform
     }, 300);

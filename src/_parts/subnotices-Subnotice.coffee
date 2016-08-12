@@ -39,7 +39,7 @@ Subnotice::reveal = ()->
 	@noticesList.push(@)
 	@el$.addClass "index--#{@noticesList.indexOf(@)+1}"
 		.addClass 'show'
-		.css 		'y':startTransform, "margin-bottom":"#{negation}#{placementOffset}"
+		.css 		'y':startTransform, "margin-bottom":"#{negation}#{placementOffset}px"
 		.transition 'y':finishTransform, 300
 
 
