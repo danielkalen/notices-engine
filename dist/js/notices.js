@@ -95,7 +95,7 @@
       return function() {
         return _this.wrapper$.addClass('reveal');
       };
-    })(this));
+    })(this), 50);
   };
   Notice.prototype.dismiss = function() {
     this.allInstances.splice(this.allInstances.indexOf(this), 1);

@@ -37,7 +37,9 @@ Notice::remove = ()->
 
 
 Notice::reveal = ()->
-	setTimeout ()=> @wrapper$.addClass('reveal')
+	setTimeout ()=>
+		@wrapper$.addClass('reveal')
+	, 50
 
 
 
