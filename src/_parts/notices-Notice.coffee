@@ -11,10 +11,10 @@ Notice = ({markup, @type, context})->
 
 
 Notice::appendContainer = (context)->
-	if $(".notices", context).length
-		$(".notices", context)
+	if $(".Notices", context).length
+		$(".Notices", context)
 	else
-		$("<div class='notices'></div>").appendTo(context)
+		$("<div class='Notices'></div>").appendTo(context)
 
 
 Notice::append = ()->
@@ -56,10 +56,10 @@ Notice::prompt = ()-> @promise = new Promise (resolve, reject)=>
 	@append()
 	@reveal()
 
-	@el$.on 'click', '.notice-actions-item', ()=> @dismiss()
+	@el$.on 'click', '.Notice-actions-item', ()=> @dismiss()
 	@el$.on 'click', '._resolver', ()=> resolve(@)
 	@el$.on 'click', '._rejecter', ()=> reject(@)
-	@el$.on 'click', '.notice-altAction', ()=>
+	@el$.on 'click', '.Notice-altAction', ()=>
 		@dismiss()
 		reject(@)
 

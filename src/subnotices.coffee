@@ -7,9 +7,9 @@ do ($=jQuery)->
 	 * @return 	{object}	subnotice			A subnotice object
 	###
 	subnotify = ({type='info', title='', text='', time=10000, delay=250, browserNotice=false, context=subnotify.context, direction=subnotify.direction, icons=subnotify.icons})->
-		markup = "<div class='subnotice subnotice_#{type}' data-icon='#{icons[type]}'>
-					<div class='subnotice-text'>#{text}</div>
-					<div class='subnotice-close' data-icon='#{icons.close}'></div>
+		markup = "<div class='Subnotice Subnotice_#{type}' data-icon='#{icons[type]}'>
+					<div class='Subnotice-text'>#{text}</div>
+					<div class='Subnotice-close' data-icon='#{icons.close}'></div>
 				 </div>"
 		
 		subnotice = new Subnotice(markup, context, direction, delay)

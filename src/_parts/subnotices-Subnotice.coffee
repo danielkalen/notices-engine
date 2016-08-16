@@ -11,10 +11,10 @@ Subnotice = (markup, context, @direction, @delay)->
 
 
 Subnotice::appendContainer = (context)->
-	if $(".subnotices.direction--#{@direction}", context).length
-		$(".subnotices.direction--#{@direction}", context)
+	if $(".Subnotices.direction--#{@direction}", context).length
+		$(".Subnotices.direction--#{@direction}", context)
 	else
-		$("<div class='subnotices direction--#{@direction}'></div>").appendTo(context)
+		$("<div class='Subnotices direction--#{@direction}'></div>").appendTo(context)
 
 
 
@@ -46,7 +46,7 @@ Subnotice::reveal = ()->
 
 
 Subnotice::attachEvents = ()->
-	@el$.children('.subnotice-close').on 'click', ()=> @destroy(0)
+	@el$.children('.Subnotice-close').on 'click', ()=> @destroy(0)
 
 
 

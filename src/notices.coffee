@@ -1,7 +1,7 @@
 do ($=jQuery)->	
 	notify = ({template, type='ok', title='', text='', buttons={}, altAction='', resolver, rejecter, context=notify.context})->
 		type = type.replace '_', ''
-		extraActionsClass = if type is 'yesno' then ' notice-actions_yesno' else ''
+		extraActionsClass = if type is 'yesno' then ' Notice-actions_yesno' else ''
 
 		if template 
 			markup = template

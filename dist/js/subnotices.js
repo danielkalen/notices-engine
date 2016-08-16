@@ -11,7 +11,7 @@
   subnotify = function(arg) {
     var browserNotice, context, delay, direction, icons, markup, ref, ref1, ref2, ref3, ref4, ref5, ref6, ref7, ref8, subnotice, text, time, title, type;
     type = (ref = arg.type) != null ? ref : 'info', title = (ref1 = arg.title) != null ? ref1 : '', text = (ref2 = arg.text) != null ? ref2 : '', time = (ref3 = arg.time) != null ? ref3 : 10000, delay = (ref4 = arg.delay) != null ? ref4 : 250, browserNotice = (ref5 = arg.browserNotice) != null ? ref5 : false, context = (ref6 = arg.context) != null ? ref6 : subnotify.context, direction = (ref7 = arg.direction) != null ? ref7 : subnotify.direction, icons = (ref8 = arg.icons) != null ? ref8 : subnotify.icons;
-    markup = "<div class='subnotice subnotice_" + type + "' data-icon='" + icons[type] + "'> <div class='subnotice-text'>" + text + "</div> <div class='subnotice-close' data-icon='" + icons.close + "'></div> </div>";
+    markup = "<div class='Subnotice Subnotice_" + type + "' data-icon='" + icons[type] + "'> <div class='Subnotice-text'>" + text + "</div> <div class='Subnotice-close' data-icon='" + icons.close + "'></div> </div>";
     subnotice = new Subnotice(markup, context, direction, delay);
     subnotice.destroy(time);
     if (browserNotice) {
@@ -36,10 +36,10 @@
     return this;
   };
   Subnotice.prototype.appendContainer = function(context) {
-    if ($(".subnotices.direction--" + this.direction, context).length) {
-      return $(".subnotices.direction--" + this.direction, context);
+    if ($(".Subnotices.direction--" + this.direction, context).length) {
+      return $(".Subnotices.direction--" + this.direction, context);
     } else {
-      return $("<div class='subnotices direction--" + this.direction + "'></div>").appendTo(context);
+      return $("<div class='Subnotices direction--" + this.direction + "'></div>").appendTo(context);
     }
   };
   Subnotice.prototype.append = function() {
@@ -75,7 +75,7 @@
     }, 300);
   };
   Subnotice.prototype.attachEvents = function() {
-    return this.el$.children('.subnotice-close').on('click', (function(_this) {
+    return this.el$.children('.Subnotice-close').on('click', (function(_this) {
       return function() {
         return _this.destroy(0);
       };

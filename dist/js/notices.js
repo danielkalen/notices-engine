@@ -5,7 +5,7 @@
     var altAction, buttons, context, extraActionsClass, markup, p, ref, ref1, ref2, ref3, ref4, ref5, rejecter, resolver, template, text, title, type;
     template = arg.template, type = (ref = arg.type) != null ? ref : 'ok', title = (ref1 = arg.title) != null ? ref1 : '', text = (ref2 = arg.text) != null ? ref2 : '', buttons = (ref3 = arg.buttons) != null ? ref3 : {}, altAction = (ref4 = arg.altAction) != null ? ref4 : '', resolver = arg.resolver, rejecter = arg.rejecter, context = (ref5 = arg.context) != null ? ref5 : notify.context;
     type = type.replace('_', '');
-    extraActionsClass = type === 'yesno' ? ' notice-actions_yesno' : '';
+    extraActionsClass = type === 'yesno' ? ' Notice-actions_yesno' : '';
     if (template) {
       markup = template;
     } else {
@@ -65,10 +65,10 @@
     return this.prompt();
   };
   Notice.prototype.appendContainer = function(context) {
-    if ($(".notices", context).length) {
-      return $(".notices", context);
+    if ($(".Notices", context).length) {
+      return $(".Notices", context);
     } else {
-      return $("<div class='notices'></div>").appendTo(context);
+      return $("<div class='Notices'></div>").appendTo(context);
     }
   };
   Notice.prototype.append = function() {
@@ -113,7 +113,7 @@
       return function(resolve, reject) {
         _this.append();
         _this.reveal();
-        _this.el$.on('click', '.notice-actions-item', function() {
+        _this.el$.on('click', '.Notice-actions-item', function() {
           return _this.dismiss();
         });
         _this.el$.on('click', '._resolver', function() {
@@ -122,7 +122,7 @@
         _this.el$.on('click', '._rejecter', function() {
           return reject(_this);
         });
-        return _this.el$.on('click', '.notice-altAction', function() {
+        return _this.el$.on('click', '.Notice-altAction', function() {
           _this.dismiss();
           return reject(_this);
         });
@@ -153,8 +153,8 @@
     return markup.join('');
   };
   noticeMarkup = {
-    notice: "<div class='notice'> <div class='notice-title'>{{title}}</div> <div class='notice-message'>{{text}}</div> <div class='notice-actions notice-actions--{{type}} _count--{{actionsCount}}'>{{actions}}</div> <div class='notice-altAction'>{{altAction}}</div> </div>",
-    action: "<div class='notice-actions-item button_{{name}} {{promiseAction}}' data-name='{{name}}'> <div class='notice-actions-item-text'>{{label}}</div> </div>"
+    notice: "<div class='Notice'> <div class='Notice-title'>{{title}}</div> <div class='Notice-message'>{{text}}</div> <div class='Notice-actions Notice-actions--{{type}} _count--{{actionsCount}}'>{{actions}}</div> <div class='Notice-altAction'>{{altAction}}</div> </div>",
+    action: "<div class='Notice-actions-item button_{{name}} {{promiseAction}}' data-name='{{name}}'> <div class='Notice-actions-item-text'>{{label}}</div> </div>"
   };
   notify.instances = Notice.prototype.allInstances;
   notify.context = document.body;
