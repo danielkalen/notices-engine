@@ -28,7 +28,7 @@ Subnotice::append = ()->
 
 Subnotice::reveal = ()->
 	otherNotices = @noticesList.slice()
-	otherNoticesHeights = otherNotices.map (notice)-> notice.el$[0].offsetHeight
+	otherNoticesHeights = otherNotices.map (notice)-> if notice.beingDestroyed then 0 else notice.el$[0].offsetHeight
 	placementOffset = if not otherNoticesHeights.length then 0 else otherNoticesHeights.reduce (a=0,b=0)-> a+b
 	negation = if @direction is 'top' then '-' else ''
 	noticeHeight = @el$[0].offsetHeight
@@ -51,6 +51,8 @@ Subnotice::attachEvents = ()->
 
 
 Subnotice::destroy = (time, duration=300)-> if @isActive and time isnt false
+	@beingDestroyed = true
+	
 	setTimeout ()=>
 		index = @noticesList.indexOf(@)
 		noticesInFront = @noticesList.slice(index) # Including self
@@ -65,7 +67,7 @@ Subnotice::destroy = (time, duration=300)-> if @isActive and time isnt false
 		
 		setTimeout ()=>
 			return unless @isActive
-			@isActive = false				
+			@isActive = @beingDestroyed = false
 			@noticesList.splice @noticesList.indexOf(@),1
 			@el$.removeClass('show').remove()
 		, duration+20
