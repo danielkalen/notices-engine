@@ -6,6 +6,7 @@
   "author": "danielkalen",
   "license": "MIT",
   "scripts": {
+    "postversion": "echo \\'$(json -f package.json version)\\' > .version.coffee && npm run build",
     "build": "npm run compile && npm run minify",
     "compile": "npm run compile:notices && npm run compile:subnotices",
     "compile:notices": "simplyimport -i src/notices.coffee | coffee -c -s -b > dist/js/notices.js",

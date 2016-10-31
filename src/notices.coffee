@@ -44,5 +44,6 @@ do ($=jQuery)->
 	import '_parts/notices-markup.coffee'
 	import '_parts/notices-defaults.coffee'
 
+	Notice.version = import '../.version.coffee'
 	window.notify = notify
 	notify.Notice = Notice

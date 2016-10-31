@@ -24,5 +24,7 @@ do ($=jQuery)->
 	import '_parts/subnotices-Subnotice.coffee'
 	import '_parts/subnotices-BrowserNotice.coffee'
 	import '_parts/subnotices-defaults.coffee'
+
+	Subnotice.version = import '../.version.coffee'
 	window.subnotify = subnotify
 	subnotify.Subnotice = Subnotice
