@@ -1,4 +1,4 @@
-# @import '_parts/jquery.transit.js'
+import '_parts/jquery.transit.js'
 
 do ($=jQuery)->	
 	###*
@@ -21,8 +21,8 @@ do ($=jQuery)->
 		return subnotice
 
 
-	# @import '_parts/subnotices-Subnotice.coffee'
-	# @import '_parts/subnotices-BrowserNotice.coffee'
-	# @import '_parts/subnotices-defaults.coffee'
+	import '_parts/subnotices-Subnotice.coffee'
+	import '_parts/subnotices-BrowserNotice.coffee'
+	import '_parts/subnotices-defaults.coffee'
 	window.subnotify = subnotify
 	subnotify.Subnotice = Subnotice

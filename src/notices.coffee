@@ -40,9 +40,9 @@ do ($=jQuery)->
 
 
 
-	# @import '_parts/notices-Notice.coffee'
-	# @import '_parts/notices-markup.coffee'
-	# @import '_parts/notices-defaults.coffee'
+	import '_parts/notices-Notice.coffee'
+	import '_parts/notices-markup.coffee'
+	import '_parts/notices-defaults.coffee'
 
 	window.notify = notify
 	notify.Notice = Notice
