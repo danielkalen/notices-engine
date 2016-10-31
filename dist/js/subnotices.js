@@ -152,7 +152,7 @@
     'warning': '',
     'close': ''
   };
-  Subnotice.version = '2.2.0';
+  Subnotice.version = '2.2.1';
   window.subnotify = subnotify;
   return subnotify.Subnotice = Subnotice;
 })(jQuery);

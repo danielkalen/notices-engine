@@ -158,7 +158,7 @@
   };
   notify.instances = Notice.prototype.allInstances;
   notify.context = document.body;
-  Notice.version = '2.2.0';
+  Notice.version = '2.2.1';
   window.notify = notify;
   return notify.Notice = Notice;
 })(jQuery);
