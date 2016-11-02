@@ -79,7 +79,7 @@
     }, 300);
   };
   Subnotice.prototype.attachEvents = function() {
-    return this.el$.children('.Subnotice-close').on('click', (function(_this) {
+    return this.el$.children('.Subnotice-close').on(subnotify.clickEvent, (function(_this) {
       return function() {
         return _this.destroy(0);
       };
@@ -145,6 +145,7 @@
   subnotify.instances = Subnotice.prototype.allInstances;
   subnotify.direction = 'bottom';
   subnotify.context = document.body;
+  subnotify.clickEvent = 'click';
   subnotify.icons = {
     'info': '',
     'success': '',
@@ -152,7 +153,7 @@
     'warning': '',
     'close': ''
   };
-  Subnotice.version = '2.2.1';
+  Subnotice.version = '2.3.0';
   window.subnotify = subnotify;
   return subnotify.Subnotice = Subnotice;
 })(jQuery);

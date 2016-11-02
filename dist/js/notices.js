@@ -113,16 +113,16 @@
       return function(resolve, reject) {
         _this.append();
         _this.reveal();
-        _this.el$.on('click', '.Notice-actions-item', function() {
+        _this.el$.on(notify.clickEvent, '.Notice-actions-item', function() {
           return _this.dismiss();
         });
-        _this.el$.on('click', '._resolver', function() {
+        _this.el$.on(notify.clickEvent, '._resolver', function() {
           return resolve(_this);
         });
-        _this.el$.on('click', '._rejecter', function() {
+        _this.el$.on(notify.clickEvent, '._rejecter', function() {
           return reject(_this);
         });
-        return _this.el$.on('click', '.Notice-altAction', function() {
+        return _this.el$.on(notify.clickEvent, '.Notice-altAction', function() {
           _this.dismiss();
           return reject(_this);
         });
@@ -158,7 +158,8 @@
   };
   notify.instances = Notice.prototype.allInstances;
   notify.context = document.body;
-  Notice.version = '2.2.1';
+  notify.clickEvent = 'click';
+  Notice.version = '2.3.0';
   window.notify = notify;
   return notify.Notice = Notice;
 })(jQuery);
