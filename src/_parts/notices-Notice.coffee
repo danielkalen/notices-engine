@@ -56,10 +56,10 @@ Notice::prompt = ()-> @promise = new Promise (resolve, reject)=>
 	@append()
 	@reveal()
 
-	@el$.on 'click', '.Notice-actions-item', ()=> @dismiss()
-	@el$.on 'click', '._resolver', ()=> resolve(@)
-	@el$.on 'click', '._rejecter', ()=> reject(@)
-	@el$.on 'click', '.Notice-altAction', ()=>
+	@el$.on notify.clickEvent, '.Notice-actions-item', ()=> @dismiss()
+	@el$.on notify.clickEvent, '._resolver', ()=> resolve(@)
+	@el$.on notify.clickEvent, '._rejecter', ()=> reject(@)
+	@el$.on notify.clickEvent, '.Notice-altAction', ()=>
 		@dismiss()
 		reject(@)
 

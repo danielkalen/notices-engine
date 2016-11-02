@@ -46,7 +46,7 @@ Subnotice::reveal = ()->
 
 
 Subnotice::attachEvents = ()->
-	@el$.children('.Subnotice-close').on 'click', ()=> @destroy(0)
+	@el$.children('.Subnotice-close').on subnotify.clickEvent, ()=> @destroy(0)
 
 
 
