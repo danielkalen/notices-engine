@@ -128,7 +128,7 @@
     altAction: function() {
       return {
         position: 'absolute',
-        bottom: '-50px',
+        bottom: '-30px',
         left: '0',
         right: '0',
         fontSize: '13px',
@@ -376,7 +376,7 @@
     }
     return this.isActive = false;
   };
-  Notice.version = '3.0.0';
+  Notice.version = '3.0.1';
   Notice.queue = [];
   Notice.clickEvent = 'click';
   Notice.markup = markup;
