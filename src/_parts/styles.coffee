@@ -107,7 +107,7 @@ style =
 	
 	altAction: ()->
 		position: 'absolute'
-		bottom: '-50px'
+		bottom: '-30px'
 		left: '0'
 		right: '0'
 		fontSize: '13px'
