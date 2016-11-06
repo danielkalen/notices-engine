@@ -376,7 +376,7 @@
     }
     return this.isActive = false;
   };
-  Notice.version = '2.3.0';
+  Notice.version = '3.0.0';
   Notice.queue = [];
   Notice.clickEvent = 'click';
   Notice.markup = markup;
