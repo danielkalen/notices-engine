@@ -4,6 +4,7 @@
   "description": "A simple notice (modal popups) system",
   "main": "dist/notices.js",
   "author": "danielkalen",
+  "repository": "https://github.com/danielkalen/notices-engine",
   "license": "MIT",
   "scripts": {
     "postversion": "echo \\'$(json -f package.json version)\\' > .version.coffee && npm run build",
@@ -15,10 +16,12 @@
   "devDependencies": {
     "closure-compiler-service": "^0.5.0",
     "coffee-script": "^1.10.0",
+    "json": "^9.0.4",
     "simplyimport": "*",
     "simplywatch": "*",
     "uglify": "*"
   },
   "dependencies": {
+    "jquery": "^3.1.1"
   }
 }

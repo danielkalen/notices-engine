@@ -4,7 +4,7 @@ do ($=jQuery)->
 	import '_parts/helpers.coffee'
 
 
-	Notice = ({@type='ok', @title='', @text='', @actions, @altAction='', @highlight})->
+	Notice = ({@type='ok', @title='', @text='', @actions, @altAction='', @highlight, @keepAlive})->
 		@isActive = false
 		@els = {}
 		@els.actionButtons = {}
@@ -34,12 +34,12 @@ do ($=jQuery)->
 
 
 		@actionsCount = (p for p of @actions).length
-		@appendToContainer()
+		@appendToDOM()
 		return @
 
 
 
-	Notice::appendToContainer = ()->
+	Notice::appendToDOM = ()->
 		applyStyles(@els.container, Notice.style.container())
 		applyStyles(@els.overlay, Notice.style.overlay())
 		applyStyles(@els.notice, Notice.style.notice())
@@ -73,14 +73,14 @@ do ($=jQuery)->
 
 	Notice::dismiss = (targetAction)-> new Promise (resolve)=>
 		Notice.queue.splice Notice.queue.indexOf(@),1
-		applyStyles(@els.container, Notice.style.container())
-		applyStyles(@els.overlay, Notice.style.overlay())
-		applyStyles(@els.notice, Notice.style.notice())
+		removeStyles(@els.container, Notice.styleOpenState.container())
+		removeStyles(@els.overlay, Notice.styleOpenState.overlay(), Notice.style.overlay())
+		removeStyles(@els.notice, Notice.styleOpenState.notice(), Notice.style.notice())
 
 		setTimeout ()=>
 			@destroy()
 			resolve(targetAction)
-		, 350
+		, Notice.animationSpeed+25
 
 
 
@@ -97,12 +97,12 @@ do ($=jQuery)->
 			applyStyles(@els.container, Notice.styleOpenState.container())
 			applyStyles(@els.overlay, Notice.styleOpenState.overlay())
 			applyStyles(@els.notice, Notice.styleOpenState.notice())
-		, 100
+		, 50
 
 
 
 	Notice::destroy = ()->
-		@els.notice.remove()
+		@els.container.remove() unless @keepAlive
 		@isActive = false
 
 
@@ -116,8 +116,10 @@ do ($=jQuery)->
 	Notice.markup = markup
 	Notice.style = style
 	Notice.styleOpenState = styleOpenState
+	Notice.animationSpeed = 300
 	Notice.colorBorder = '#c7c7c7'
 	Notice.colorButton = '#f1c618'
+	Notice.colorButtonBG = '#e8ebed'
 	Notice.colorAltAction = '#ffffff'
 	Notice.colorText = '#181818'
 	Notice.context = document.body

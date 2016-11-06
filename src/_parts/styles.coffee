@@ -17,7 +17,7 @@ style =
 		height: '100vh'
 		backgroundColor: 'rgba(0,0,0,0.5)'
 		opacity: 0
-		transition: 'opacity 0.3s'
+		transition: "opacity #{Notice.animationSpeed/1000}s"
 
 	notice: ()->
 		position: 'absolute'
@@ -44,7 +44,7 @@ style =
 		msTransform: 'scale(0.85) translateY(-50%)'
 		oTransform: 'scale(0.85) translateY(-50%)'
 		transform: 'scale(0.85) translateY(-50%)'
-		transition: 'transform 0.3s, opacity 0.3s'
+		transition: "transform #{Notice.animationSpeed/1000}s, opacity #{Notice.animationSpeed/1000}s"
 
 	title: ()->
 		paddingTop: '22px'
@@ -78,6 +78,7 @@ style =
 		float: 'left'
 		width: "#{100/actionsCount}%"
 		height: '100%'
+		backgroundColor: if actionsCount is 1 then Notice.colorButtonBG else ''
 		borderRight: "1px solid #{Notice.colorBorder}"
 		boxSizing: 'border-box'
 		fontSize: '18px'
@@ -106,7 +107,7 @@ style =
 	
 	altAction: ()->
 		position: 'absolute'
-		bottom: '-50%'
+		bottom: '-50px'
 		left: '0'
 		right: '0'
 		fontSize: '13px'
