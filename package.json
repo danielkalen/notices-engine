@@ -1,6 +1,6 @@
 {
   "name": "@danielkalen/notices-engine",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A simple notice (modal popups) system",
   "main": "dist/notices.js",
   "browser": {
