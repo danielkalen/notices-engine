@@ -124,4 +124,12 @@ do ($=jQuery)->
 	Notice.colorText = '#181818'
 	Notice.context = document.body
 
-	window.Notice = Notice
+	### istanbul ignore next ###
+	if module?.exports?
+		module.exports = Notice
+	else if typeof define is 'function' and define.amd
+		define ['notices-engine'], ()-> Notice
+	else
+		@Notice = Notice
+
+
