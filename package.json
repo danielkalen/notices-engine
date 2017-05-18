@@ -3,14 +3,18 @@
   "version": "3.0.1",
   "description": "A simple notice (modal popups) system",
   "main": "dist/notices.js",
+  "browser": {
+    "./debug": "dist/notices.debug.js",
+    "./src": "src/notices.coffee"
+  },
   "author": "danielkalen",
   "repository": "https://github.com/danielkalen/notices-engine",
   "license": "MIT",
   "scripts": {
     "postversion": "echo \\'$(json -f package.json version)\\' > .version.coffee && npm run build",
     "build": "npm run compile && npm run minify",
-    "compile": "simplyimport -i src/notices.coffee | coffee -c -s -b > dist/notices.js",
-    "minify": "closure-service dist/notices.js > dist/notices.min.js",
+    "compile": "simplyimport -i src/notices.coffee | coffee -c -s -b > dist/notices.debug.js",
+    "minify": "closure-service dist/notices.debug.js > dist/notices.js",
     "watch": "simplywatch -g 'src/*' -x 'npm run compile -s'"
   },
   "devDependencies": {
