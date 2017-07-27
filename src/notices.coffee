@@ -40,10 +40,10 @@ do ($=jQuery)->
 
 
 
-	import '_parts/notices-Notice.coffee'
-	import '_parts/notices-markup.coffee'
-	import '_parts/notices-defaults.coffee'
+	import './_parts/notices-Notice'
+	import './_parts/notices-markup'
+	import './_parts/notices-defaults'
 
-	Notice.version = import '../.version.coffee'
-	window.notify = notify
+	Notice.version = import '../package.json $ version'
 	notify.Notice = Notice
+	module.exports = notify
