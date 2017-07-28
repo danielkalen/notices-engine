@@ -23,11 +23,12 @@
   "devDependencies": {
     "closure-compiler-service": "^0.5.0",
     "coffee-script": "^1.10.0",
-    "simplyimport": "^4.0.0-s15",
+    "simplyimport": "^4.0.0-s16",
     "simplywatch": "^3.0.0-l2",
     "uglify": "*"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "jquery.transit": "^0.9.12"
   }
 }
