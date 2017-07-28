@@ -11203,7 +11203,7 @@ subnotify.icons = {
 
 ;
 
-Subnotice.version = "2.3.0";
+Subnotice.version = "2.3.1";
 
 subnotify.Subnotice = Subnotice;
 
