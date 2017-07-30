@@ -188,7 +188,7 @@ exports: {}
   notify.clickEvent = 'click';
   
   ;
-  Notice.version = "2.3.1";
+  Notice.version = "2.3.2";
   notify.Notice = Notice;
   return module.exports = notify;
 })(jQuery);

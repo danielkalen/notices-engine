@@ -946,7 +946,7 @@ subnotify.icons = {
 
 ;
 
-Subnotice.version = "2.3.1";
+Subnotice.version = "2.3.2";
 
 subnotify.Subnotice = Subnotice;
 
