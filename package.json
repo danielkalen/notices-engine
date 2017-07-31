@@ -1,6 +1,6 @@
 {
   "name": "@danielkalen/notices-engine",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "A simple notice and subnotice display system",
   "main": "dist/js/notices.js",
   "browser": {
