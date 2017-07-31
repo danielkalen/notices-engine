@@ -23,7 +23,7 @@
   "devDependencies": {
     "closure-compiler-service": "^0.5.0",
     "coffee-script": "^1.10.0",
-    "simplyimport": "^4.0.0-s17",
+    "simplyimport": "^4.0.0-s20",
     "simplywatch": "^3.0.0-l2",
     "uglify": "*"
   },
