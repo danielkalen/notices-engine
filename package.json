@@ -4,16 +4,17 @@
   "description": "A simple notice (modal popups) system",
   "main": "dist/notices.js",
   "browser": {
-    "./debug": "dist/notices.debug.js",
-    "./src": "src/notices.coffee"
+    "./debug": "./dist/notices.debug.js",
+    "./dist/notices.js": "./src/index.coffee"
   },
   "author": "danielkalen",
   "repository": "https://github.com/danielkalen/notices-engine",
   "license": "MIT",
   "scripts": {
-    "postversion": "echo \\'$(json -f package.json version)\\' > .version.coffee && npm run build",
+    "postversion": "npm run build && git add . && git commit -m '[Build]'",
+    "postpublish": "git push",
     "build": "npm run compile && npm run minify",
-    "compile": "simplyimport -i src/notices.coffee | coffee -c -s -b > dist/notices.debug.js",
+    "compile": "simplyimport bundle -d --umd notify src/index.coffee > dist/notices.debug.js",
     "minify": "closure-service dist/notices.debug.js > dist/notices.js",
     "watch": "simplywatch -g 'src/*' -x 'npm run compile -s'"
   },
@@ -21,11 +22,12 @@
     "closure-compiler-service": "^0.5.0",
     "coffee-script": "^1.10.0",
     "json": "^9.0.4",
-    "simplyimport": "*",
-    "simplywatch": "*",
+    "simplyimport": "^4.0.0-s35",
+    "simplywatch": "^3.0.0-l2",
     "uglify": "*"
   },
   "dependencies": {
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "smart-extend": "^1.7.3"
   }
 }
